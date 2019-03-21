@@ -1,6 +1,6 @@
 #!/bin/bash
 
-url=${url:?'Package url is required!'}
+url=${1:?'Package url is required!'}
 filename=$(basename "$url")
 basename=${filename%.*}
 version=${basename##*-}

@@ -12,7 +12,7 @@ fi
 
 # It's really weird that /var/lib/waagent can'te be a install_path: files
 # downloaded by curl to it are just gone, while curl exits OK!
-install_path=${install_path:?'install_path is required!'}
+install_path=${install_path:-~}
 if [[ ! -d "$install_path" ]]; then
   echo "Dir \"$install_path\" doesn't exist!"
   exit 1

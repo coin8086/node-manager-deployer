@@ -13,7 +13,7 @@ $script = "curl -L https://raw.githubusercontent.com/coin8086/node-manager-deplo
 
 $bytes = [System.Text.Encoding]::UTF8.GetBytes($script)
 $b64s = [Convert]::ToBase64String($Bytes)
-$settings = @{ script = $b64s }
+$settings = @{ script = $b64s; timestamp = $(Get-Date).Ticks }
 
 $vm = Get-AzVM -ResourceGroupName $vmResourceGroup -Name $vmName
 

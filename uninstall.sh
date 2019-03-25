@@ -10,7 +10,7 @@ echo "Enter \"$install_path\""
 cd "$install_path" || exit 1
 
 name_prefix='Microsoft.HpcPack.HpcAcmAgent-'
-for f in "$name_prefix*"; do
+for f in "$name_prefix"*; do
   if [[ -d "$f" ]]; then
     cd "$f"
     echo "Disable and uninstall \"$f\"..."

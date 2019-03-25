@@ -18,7 +18,7 @@ if [[ ! -d "$install_path" ]]; then
   exit 1
 fi
 
-echo "Enter \"$install_path\"..."
+echo "Enter \"$install_path\""
 cd "$install_path" || exit 1
 
 name_prefix='Microsoft.HpcPack.HpcAcmAgent-'
@@ -35,14 +35,14 @@ for f in "$name_prefix*"; do
   fi
 done
 
-echo "Download \"$url\" to \"$filename\"..."
+echo "Downloading \"$url\" to \"$filename\"..."
 curl -L -o "$filename" "$url" || exit 1
 
 dir="$name_prefix$version"
-echo "Unzip  \"$filename\" to \"$dir\"..."
+echo "Unzipping \"$filename\" to \"$dir\"..."
 unzip -o -d "$dir" "$filename" || exit 1
 
-echo "Prepare to run..."
+echo "Preparing to run..."
 cd "$dir" || exit 1
 mkdir config log status
 touch config/0.settings
@@ -65,7 +65,7 @@ echo "
 " > HandlerEnvironment.json
 
 
-echo "Start..."
+echo "Starting..."
 python hpcacmagent.py -install && python hpcacmagent.py -enable
 code=$?
 echo "Return code: $code"
